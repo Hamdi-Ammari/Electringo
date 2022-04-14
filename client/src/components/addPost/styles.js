@@ -159,7 +159,7 @@ export default makeStyles((theme) => ({
             height:'100%',
             justifyContent:'center',
             padding:'1rem',
-            borderRadius:'0'
+            borderRadius:'0',
         },
         formDiv:{
             width:'100%',

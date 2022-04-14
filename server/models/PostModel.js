@@ -5,6 +5,14 @@ const postSchema = mongoose.Schema({
     description:String,
     image:[String],
     prix:Number,
+    likes:{
+        type:[String],
+        default:[]
+    },
+    comments:{
+        type:[{}],
+        default:[]
+    },
     creator:String,
     nom:String,
     prenom:String,

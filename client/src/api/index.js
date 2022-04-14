@@ -19,7 +19,9 @@ export const getUserProfile = (id) => API.get(`/${id}`);
 
 export const getPosts = () => API.get('/');
 export const createPost = (inputValue) => API.post('/',inputValue);
-export const uploadImage = (inputValue) => API.post('/uploadImage',inputValue);
+export const addLikes = (id) => API.patch(`/likes/${id}`);
+export const addComments = (value,id) => API.post(`/comments/${id}`,value);
+//export const uploadImage = (inputValue) => API.post('/uploadImage',inputValue);
 export const deletePost = (id) => API.delete(`/${id}`);
 export const addPrice = (value,id) => API.post(`/${id}`,{value});
 export const sendOrder = (emailText) => API.post('/send',emailText)

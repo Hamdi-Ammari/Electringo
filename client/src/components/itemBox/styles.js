@@ -116,11 +116,11 @@ export default makeStyles((theme) => ({
         objectFit:'contain',
     },
     footer:{
-        padding:'1.5rem 0',
+        padding:'.2rem .1rem .5rem',
         display:'flex',
         flexDirection:'column',
         alignItems:'center',
-        justifyContent:'center',
+        justifyContent:'space-evenly',
     },
     pricePaper:{
         minWidth:'200px',
@@ -131,6 +131,33 @@ export default makeStyles((theme) => ({
         fontWeight:'bold',
         fontSize:'1rem',
     },
+    likeCommentBigCont:{
+        width:'100%',
+        display:'flex',
+        flexDirection:'column',
+        padding:'0 .5rem'
+    },
+    likeCommentContainer:{
+        width:'50%',
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'flex-start',
+        padding:'.2rem .5rem',
+    },
+    likeCommentBox:{
+        display:'flex',
+        alignItems:'center',
+    },
+    footerIcon:{
+        cursor:'pointer',
+        fontSize:'1.6rem',
+        color:'#666'
+    },
+    likeCommentText:{
+        fontSize:'.8rem',
+        fontWeight:'bold',
+        color:'#666'
+    },
     iconsDiv:{
         width:'120px',
         display:'flex',
@@ -138,13 +165,41 @@ export default makeStyles((theme) => ({
         justifyContent:'center',
         marginTop:'1rem',
     },
-    starIcon:{
-        cursor:'pointer',
-        fontSize:'1.85rem',
-        color:'#000'
-    },
     textShowOff:{
         display:'none'
+    },
+    commentForm:{
+        width:'98%',
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'space-between',
+    },
+    commentInput:{
+        width:'95%',
+        padding:'.6rem 1rem',
+        border:'1px solid lightgray',
+        borderRadius:'5rem',
+    },
+    addCommentIcon:{
+        color:'#18A0FB',
+        cursor:'pointer'
+    },
+    allCommentsDiv:{
+        height:'60px',
+        overflow:'auto',
+        marginTop:'5px'
+    },
+    postComment:{
+        padding:'0 1rem',
+        margin:'.5rem 0',
+    },
+    commentOwner:{
+        fontSize:'.85rem',
+        fontWeight:'bold',
+        cursor:'pointer',
+    },
+    commentValue:{
+        fontSize:'.85rem',
     },
     [theme.breakpoints.down('sm')] : ({
         box:{

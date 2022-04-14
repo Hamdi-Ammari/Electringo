@@ -12,7 +12,6 @@ import { sendOrder } from '../../../actions/post';
 const PasserUneCommande = ({post,passerUneCommande,setPasserUneCommande}) => {
     const classes = useStyles();
     const {userSearched,error} = useSelector(state => state.authReducer);
-    const {userProfile} = useSelector(state => state.postReducer);
     const user = JSON.parse(localStorage.getItem('user'));
 
     const initialState = {
@@ -88,7 +87,7 @@ const PasserUneCommande = ({post,passerUneCommande,setPasserUneCommande}) => {
                     </div>
                     <div className={classes.product_name_cont}>
                         <Typography variant='body2'>Vendeur : </Typography>
-                        <Typography variant='body2' className={classes.value}>{`${post?.nom?.charAt(0)?.toUpperCase() + post?.nom?.slice(1)} ${post?.prenom?.charAt(0)?.toUpperCase() + post?.prenom?.slice(1)}`}</Typography>
+                        <Typography variant='body2' className={classes.value}>{`${user?.result?.nom?.charAt(0)?.toUpperCase() + user?.result?.nom?.slice(1)} ${user?.result?.prenom.charAt(0)?.toUpperCase() + user?.result?.prenom?.slice(1)} - ${user?.result?.adresse}`}</Typography>
                     </div>
                     <form onSubmit={sendEmailHandler} className={classes.form}>
                         <div className={classes.inputCont}>

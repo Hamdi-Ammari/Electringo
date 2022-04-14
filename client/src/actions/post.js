@@ -36,22 +36,30 @@ export const createPost = (inputValue) => async(dispatch) => {
     }
 }
 
-export const uploadImage = (inputValue) => async(dispatch) => {
+export const addLikes = (id) => async(dispatch) => {
     try {
-        const {data} = await api.uploadImage(inputValue);
+        const {data} = await api.addLikes(id);
         dispatch({
-            type:'UPLOAD_POST',
+            type:'ADD_LIKES',
             payload:data
         })
     } catch (error) {
-        console.log(error);
+        console.log(error)
     }
 }
-/*
-export const createAll = (formData,formData) => async(dispatch) => {
-    Promise.resolve(dispatch(uploadImage(formData))).then(() => dispatch(createPost(formData)))
+
+export const addComments = (value,id) => async(dispatch) => {
+    try {
+        const {data} = await api.addComments(value,id);
+        dispatch({
+            type:'ADD_COMMENTS',
+            payload:data
+        })
+    } catch (error) {
+        console.log(error)
+    }
 }
-*/
+
 export const deletePost = (id) => async(dispatch) => {
     try {
         await api.deletePost(id);

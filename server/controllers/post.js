@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import nodemailer from 'nodemailer';
 import PostModel from '../models/PostModel.js';
 import UserSchema from '../models/UserModel.js';
@@ -32,20 +33,39 @@ export const uploadImage = async(req,res) => {
     res.status(201).json(newFileName);
 }
 */
-/*
+
+export const addLikes = async (req,res) => {
+    const {id} = req.params;
+    try {
+        if(!req.userId) return res.json({message:'Unauthenticated'});
+        if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).json({message:'not found'});
+        const post = await PostModel.findById(id);
+        const index = post.likes.findIndex(id => id === String(req.userId));
+        if(index === -1) {
+            post.likes.push(req.userId)
+        } else {
+            post.likes = post.likes.filter(id => id !== String(req.userId))
+        }
+        const updatedPost = await PostModel.findByIdAndUpdate(id,post,{new:true});
+        res.status(200).json(updatedPost);
+    } catch (error) {
+        res.status(409).json({message:error});
+        console.log(error)
+    }
+}
+
 export const addComments = async (req,res) => {
     const {id} = req.params;
-    const {value} = req.body;
+    const {commentOwner,commentValue} = req.body;
     try {
         const post = await PostModel.findById(id);
-        post.prices.push({...value,commentCreator:req.userId});
+        post.comments.push({commentOwner,commentValue});
         const updatedPost = await PostModel.findByIdAndUpdate(id,post,{new:true});
-        res.status(201).json(updatedPost)
+        res.status(201).json(updatedPost);
     } catch (error) {
        console.log(error) 
     }
 }
-*/
 
 export const deletePost = async (req,res) => {
     const {id} = req.params;
